@@ -121,9 +121,10 @@ def highTemp(frame):
 
 
 def scanTemp():
-    scannedTempetature = sensor.get_obj_temp()
+    scannedTempetature = 35
+    #scannedTempetature = sensor.get_obj_temp()
     LogP("obj temperature = {}".format(scannedTempetature))
-    LogP("amb temperature = {}".format(sensor.get_amb_temp()))
+    #LogP("amb temperature = {}".format(sensor.get_amb_temp()))
     return scannedTempetature
 
 def button_callback(channel):

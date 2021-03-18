@@ -93,7 +93,7 @@ def closeDoor():
 
 def sensorTriggeredButNoFace(frame):
     # motion sensor triggered but no face was detectd by ai
-    LogP("I thought someone was here, but i can see no one")
+    # LogP("I thought someone was here, but i can see no one")
     cv2.imwrite(NO_FACE_LOCATION+str(int(time.time()))+".png", frame)
     LogP("image saved")
 
@@ -255,11 +255,9 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 
 def loop(IS_MOTION_DETECTED):
     if SYSTEM_STATE: #if system is on and motion is detected
-        time.sleep(3)
         IS_MOTION_DETECTED = True
         if IS_MOTION_DETECTED:
             LogP("Motion is detected")
-            time.sleep(1)
 
             ###capture frame from cameraarey
             frame = vs.read()
@@ -274,18 +272,18 @@ def loop(IS_MOTION_DETECTED):
             ###mask detection
             if noOfFacesDetected == 0: #if there are no faces i.e no people in frame, skip frame
                 sensorTriggeredButNoFace(frame)
-                LogP("No faces detected")
+                #LogP("No faces detected")
                 return
             
             (mask, withoutMask) = preds[0]
             
             if noOfFacesDetected > 1: #if there are multiple faces i.e multiple people in frame, call multipleFaces() and skip frame
                 multipleFaces(frame)
-                LogP("Multiple faces detected")
+                #LogP("Multiple faces detected")
                 return
             if withoutMask > mask: # if no mask, call noMask(), and skip frame
                 noMask(frame)
-                LogP("No mask found")
+                #LogP("No mask found")
                 return
 
             ###temp scanning

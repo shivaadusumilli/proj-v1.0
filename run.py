@@ -314,7 +314,9 @@ GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
 #set pins as output and input
 GPIO.setup(P_SERVO_X, GPIO.OUT)
 GPIO.setup(P_SERVO_Y, GPIO.OUT)
-GPIO.setup(P_MOTION_DETECTION,GPIO.OUT)
+GPIO.setup(P_LAZER, GPIO.OUT)
+GPIO.setup(P_DOOR, GPIO.OUT)
+
 pwm1 = GPIO.PWM(P_SERVO_X, 50)
 pwm2 = GPIO.PWM(P_SERVO_Y, 50)
 pwm1.start(0) # starting duty cycle ( it set the servo to 0 degree )

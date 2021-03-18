@@ -1,13 +1,21 @@
 #git link -> https://github.com/the-raspberry-pi-guy/lcd
-import lcddriver
+import drivers
+from time import sleep
 import time
-display = lcddriver.lcd()
+display = drivers.Lcd()
+
+L1 = "asdfghjklasdfghjkl"
+L2 = "qwertyuiopqwertyui"
 
 def updateDisplay():
-    LogP("updating display")
+    print("updating display")
+    display.lcd_clear()   
     display.lcd_display_string(L1, 1) # Write line of text to first line of display
     display.lcd_display_string(L2, 2) # Write line of text to second line of display
 
+updateDisplay()
+
+'''
 
 
 # Main body of code
@@ -26,3 +34,4 @@ try:
 except KeyboardInterrupt: # If there is a KeyboardInterrupt (when you press ctrl+c), exit the program and cleanup
     print("Cleaning up!")
     display.lcd_clear()
+'''

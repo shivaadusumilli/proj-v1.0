@@ -297,7 +297,7 @@ def loop(IS_MOTION_DETECTED):
 
             ###if all above conditions passes, then open door
             openDoor()
-            sleep(5) #door is kept open for 5 seconds
+            time.sleep(5) #door is kept open for 5 seconds
             closeDoor()
 
             IS_MOTION_DETECTED = False
